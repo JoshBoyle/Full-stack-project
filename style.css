@@ -1,21 +1,63 @@
+/*General tags*/
 h1 {
     text-align: center;
-    font-family: Helvetica;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#navigation > ol {
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+/* navigation */
+#navigation {
     list-style: none;
     margin: 10px;
-    width: 900px;
+    width: 90rem;
     font-family: sans-serif;
 }
 
-#navigation > ol > li {
+#navigation > #nav-left > ol > li,
+#navigation > #nav-right > li {
+    text-decoration: none;
     display: block;
-    //margin: 120px;
+    /*margin: 120px;*/
     float: left;
     margin-left: 2px;
     border: 1px solid #000;
     padding: 10px 10px;
     background-color: #CCC;
 }
+
+#navigation > #nav-right > li {
+    float:right;
+    margin-right: -50rem;
+}
+
+#nav-image {
+    display: flex;
+    justify-content: center;
+}
+
+/*#navigation > img {*/
+/*    display: block;*/
+/*    background: #4CAF50;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*}*/
+
+/*.center {*/
+/*    margin: auto;*/
+/*    width: 640px;*/
+/*    padding: 50px;*/
+/*    font-family: 'Avenir', sans-serif;*/
+/*    color: #33475b;*/
+/*}*/
+
+
+/*.center {*/
+/*    margin: auto;*/
+/*    */
+/*    display: block;*/
+/*    background: #4CAF50;*/
+/*}*/
