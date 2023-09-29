@@ -4,9 +4,9 @@
 class Dao {
 
     private $host = "localhost";
-    private $db = "ckenning";
-    private $user = "ckenning";
-    private $pass = "password";
+    private $db = "mysql";
+    private $user = "root";
+    private $pass = "";
 
     public function getConnection () {
         return
