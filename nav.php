@@ -11,6 +11,7 @@
     </div>
 </div>
 
-<div id="nav-image">
+<div id="house-image">
     <img src="../img/a005-scottw-330.jpg" alt="some white house in fall">
 </div>
+

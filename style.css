@@ -1,16 +1,21 @@
 /*General tags*/
-h1 {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 a {
     color: #000000;
     text-decoration: none;
 }
 
+body {
+    margin: auto;
+    width: 2000px;
+    padding: 50px;
+    font-family: 'Avenir', sans-serif;
+    color: #33475b;
+}
+
 /* navigation */
 #navigation {
+    display:flex;
+    justify-content: center;
     list-style: none;
     margin: 10px;
     width: 90rem;
@@ -34,30 +39,9 @@ a {
     margin-right: -50rem;
 }
 
-#nav-image {
+/*img*/
+#house-image {
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
 }
-
-/*#navigation > img {*/
-/*    display: block;*/
-/*    background: #4CAF50;*/
-/*    margin-left: auto;*/
-/*    margin-right: auto;*/
-/*}*/
-
-/*.center {*/
-/*    margin: auto;*/
-/*    width: 640px;*/
-/*    padding: 50px;*/
-/*    font-family: 'Avenir', sans-serif;*/
-/*    color: #33475b;*/
-/*}*/
-
-
-/*.center {*/
-/*    margin: auto;*/
-/*    */
-/*    display: block;*/
-/*    background: #4CAF50;*/
-/*}*/
