@@ -1,47 +1,121 @@
-/*General tags*/
-a {
-    color: #000000;
-    text-decoration: none;
+/* Reset some default styles */
+body, ul, li, img {
+    margin: 0;
+    padding: 0;
 }
 
-body {
-    margin: auto;
-    width: 2000px;
-    padding: 50px;
-    font-family: 'Avenir', sans-serif;
-    color: #33475b;
+/* Style the header (navigation bar) */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
 }
 
-/* navigation */
-#navigation {
-    display:flex;
-    justify-content: center;
-    list-style: none;
-    margin: 10px;
-    width: 90rem;
-    font-family: sans-serif;
-}
-
-#navigation > #nav-left > ol > li,
-#navigation > #nav-right > li {
-    text-decoration: none;
-    display: block;
-    /*margin: 120px;*/
-    float: left;
-    margin-left: 2px;
-    border: 1px solid #000;
-    padding: 10px 10px;
-    background-color: #CCC;
-}
-
-#navigation > #nav-right > li {
-    float:right;
-    margin-right: -50rem;
-}
-
-/*img*/
-#house-image {
-    margin-top: 2rem;
+nav ul {
+    list-style-type: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Align navigation items to the right */
 }
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#login-button {
+    margin-left: auto;
+}
+
+/* Style the main content container using Flexbox */
+main {
+    display: flex;
+    flex-wrap: wrap; /* Allow sections to wrap to the next row if needed */
+    padding: 20px;
+}
+
+/* Style each section */
+section {
+    margin: 10px;
+    flex: 1; /* Distribute available space evenly among sections */
+}
+
+#page-title {
+    text-align: center;
+}
+
+/* Style the image section */
+#house-image {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-basis: 100%;
+}
+
+#house-image img {
+    max-width: 100%; /* Ensure the image doesn't exceed its container's width */
+    max-height: 100%; /* Ensure the image doesn't exceed its container's height */
+}
+
+/* media query */
+@media (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    nav ul {
+        justify-content: center; /* Center navigation items on smaller screens */
+    }
+
+    .login-button {
+        margin-left: 0; /* Remove the margin on smaller screens */
+    }
+}
+
+/*!*General tags*!*/
+/*a {*/
+/*    color: #000000;*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*body {*/
+/*    margin: auto;*/
+/*    width: 2000px;*/
+/*    padding: 50px;*/
+/*    font-family: 'Avenir', sans-serif;*/
+/*    color: #33475b;*/
+/*}*/
+
+/*!* navigation *!*/
+/*#navigation {*/
+/*    display:flex;*/
+/*    justify-content: center;*/
+/*    list-style: none;*/
+/*    margin: 10px;*/
+/*    width: 90rem;*/
+/*    font-family: sans-serif;*/
+/*}*/
+
+/*#navigation > #nav-left > ol > li,*/
+/*#navigation > #nav-right > li {*/
+/*    text-decoration: none;*/
+/*    display: block;*/
+/*    !*margin: 120px;*!*/
+/*    float: left;*/
+/*    margin-left: 2px;*/
+/*    border: 1px solid #000;*/
+/*    padding: 10px 10px;*/
+/*    background-color: #CCC;*/
+/*}*/
+
+/*#navigation > #nav-right > li {*/
+/*    float:right;*/
+/*    margin-right: -50rem;*/
+/*}*/
+
+/*!*img*!*/
+/*#house-image {*/
+/*    margin-top: 2rem;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/

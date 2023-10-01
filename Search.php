@@ -1,9 +1,10 @@
 <html>
     <head>
-        <title>Real Estate Calculator</title>
-        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <title>Real Estate</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <?php include "nav.php" ?>
+        <?php include "header.php" ?>
     </body>
 </html>
