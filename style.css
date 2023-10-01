@@ -133,6 +133,19 @@ nav a {
     max-height: 100%; /* Ensure the image doesn't exceed its container's height */
 }
 
+#search-box {
+    display:flex;
+    justify-content: center;
+    padding: 6px;
+    border: none;
+    margin-top: 18px;
+    margin-right: 26px;
+}
+
+#search-box input {
+    font-size: 25px;
+}
+
 /* media query */
 @media (max-width: 768px) {
     /* Adjust styles for smaller screens */

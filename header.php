@@ -6,7 +6,8 @@
             <li><a href="#">About</a></li>
         </ul>
         <div class="logo">
-            <a href="#">Your Logo</a>
+<!--            <a href="#">Your Logo</a>-->
+            <img src="../img/LOGO.png">
         </div>
         <div class="login-button">
             <a href="#">LOGIN</a>
