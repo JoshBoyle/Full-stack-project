@@ -1,53 +1,124 @@
+/*!* Reset some default styles *!*/
+/*body, ul, li, img {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+
+/*!* Style the header (navigation bar) *!*/
+/*!*header {*!*/
+/*!*    background-color: #333;*!*/
+/*!*    color: #fff;*!*/
+/*!*    padding: 10px 0;*!*/
+/*!*}*!*/
+
+/*nav ul {*/
+/*    list-style-type: none;*/
+/*    display: flex;*/
+/*    justify-content: flex-end; !* Align navigation items to the right *!*/
+/*}*/
+
+/*nav ul li {*/
+/*    margin-right: 20px;*/
+/*    padding: 9px 15px 9px 15px;*/
+/*}*/
+
+/*nav a {*/
+/*    font-size: 16px;*/
+/*    font-weight: 300;*/
+/*    color: rgb(42, 42, 51);*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*#login-button {*/
+/*    margin-left: auto;*/
+/*}*/
+
+/*!* Style the main content container using Flexbox *!*/
+/*main {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap; !* Allow sections to wrap to the next row if needed *!*/
+/*    padding: 20px;*/
+/*}*/
+
+/*!* Style each section *!*/
+/*section {*/
+/*    margin: 10px;*/
+/*    flex: 1; !* Distribute available space evenly among sections *!*/
+/*}*/
+
+/*#page-title {*/
+/*    text-align: center;*/
+/*}*/
+
 /* Reset some default styles */
-body, ul, li, img {
+body, ul, li, a, img {
     margin: 0;
     padding: 0;
 }
 
 /* Style the header (navigation bar) */
-/*header {*/
-/*    background-color: #333;*/
-/*    color: #fff;*/
-/*    padding: 10px 0;*/
-/*}*/
-
-nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-end; /* Align navigation items to the right */
+header {
+    background-color: transparent; /* No background color */
+    color: #333; /* Dark text color */
+    padding: 10px 0;
 }
 
-nav ul li {
-    margin-right: 20px;
-    background-color: #333;
-    padding: 9px 15px 9px 15px;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav a {
-    text-decoration: none;
-    color: #fff;
+    font-size: 25px;
 }
 
-#login-button {
-    margin-left: auto;
-}
-
-/* Style the main content container using Flexbox */
-main {
+.left-nav {
+    list-style-type: none;
     display: flex;
-    flex-wrap: wrap; /* Allow sections to wrap to the next row if needed */
-    padding: 20px;
 }
 
-/* Style each section */
-section {
-    margin: 10px;
-    flex: 1; /* Distribute available space evenly among sections */
+.left-nav li {
+    margin-right: 20px;
 }
 
-#page-title {
-    text-align: center;
+.left-nav li:last-child {
+    margin-right: 0; /* Remove margin for the last list item */
 }
+
+.left-nav li a {
+    text-decoration: none;
+    color: #333; /* Dark text color for navigation links */
+    font-weight: bold;
+}
+
+.logo {
+    flex: 1; /* Allow the logo to take available space */
+    text-align: center; /* Center the logo text horizontally */
+}
+
+.logo a {
+    font-size: 50px; /* Adjust font size as needed */
+    text-decoration: none;
+    color: #333; /* Dark text color for the logo */
+    font-weight: bold;
+}
+
+.login-button a {
+    background-color: #ff5a5f; /* Red login button color similar to Zillow */
+    color: #333; /* Dark text color for the login button */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 5px; /* Rounded corners for the button */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-button a:hover {
+    background-color: #ff383d; /* Darker red on hover */
+}
+
+/* Style the main content container as needed */
+
 
 /* Style the image section */
 #house-image {

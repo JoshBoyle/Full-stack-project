@@ -1,16 +1,20 @@
 <header>
-    <div id="page-title">
-        <h1>Real Estate Calculator</h1>
-    </div>
     <nav>
-        <ul>
+        <ul class="left-nav">
             <li><a href="#">Search</a></li>
             <li><a href="#">Advanced Search</a></li>
             <li><a href="#">About</a></li>
-            <li id="login-button"><a href="#">LOGIN</a></li>
         </ul>
+        <div class="logo">
+            <a href="#">Your Logo</a>
+        </div>
+        <div class="login-button">
+            <a href="#">LOGIN</a>
+        </div>
     </nav>
 </header>
+
+<!-- Rest of your content here -->
 
 <section id="house-image">
     <img src="../img/a005-scottw-330.jpg" alt="Your Image">
