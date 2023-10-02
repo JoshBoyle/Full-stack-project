@@ -1,5 +1,8 @@
 <html>
-    <?php include "head-tag.php" ?>
+    <head>
+        <title>AdvancedSearch</title>
+        <?php include "head-tag.php" ?>
+    </head>
     <body>
         <?php include "header.php" ?>
         <section class="advanced search">

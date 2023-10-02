@@ -1,5 +1,5 @@
 /* Reset some default styles */
-body, ul, li, a, img {
+body, ul, li, a, img, p{
     margin: 0;
     padding: 0;
 }
@@ -88,7 +88,6 @@ nav a {
     margin-right: 26px;
 }
 
-
 #search-box input {
     font-size: 25px;
 }
@@ -105,7 +104,6 @@ nav a {
     flex-direction:column;
     /*justify-content: spac;*/
 }
-
 
 .search-button {
     display:flex;
@@ -124,6 +122,35 @@ nav a {
     justify-content: center;
 }
 
+
+/* Style the container */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1000px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+}
+
+/* Style the image on the left */
+.image {
+    flex: 1; /* Takes up 50% of the container */
+    padding-right: 20px; /* Add some spacing between image and text box */
+}
+
+/* Style the text box on the right */
+.text-box {
+    flex: 2; /* Takes up 50% of the container, smaller than the image */
+    background-color: #f5f5f5; /* Background color for the text box */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.text-box p {
+    font-size: 16px;
+    color: #333;
+}
 
 /* media query */
 @media (max-width: 1000px) {
@@ -158,9 +185,4 @@ nav a {
         flex-direction:column;
         justify-content:center;
     }
-    /*.column {*/
-    /*    display:flex;*/
-    /*    justify-content: center;*/
-    /*}*/
-
 }
