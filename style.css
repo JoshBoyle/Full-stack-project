@@ -15,6 +15,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 1rem;
 }
 
 nav a {
@@ -122,6 +123,7 @@ nav a {
     justify-content: center;
 }
 
+/* property-page */
 
 /* Style the container */
 .container {
