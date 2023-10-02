@@ -1,9 +1,5 @@
 <html>
-    <head>
-        <title>Real Estate Calculator</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-
+    <?php include "head-tag.php" ?>
     <body>
         <?php include "header.php" ?>
         <section class="advanced search">
@@ -16,7 +12,6 @@
                                 <option value="">Any</option>
                                 <option value="100000">$100,000</option>
                                 <option value="200000">$200,000</option>
-                                <!-- Add more options as needed -->
                             </select>
                             <label for="price-max">Price Max:</label>
                             <select id="price-max">
@@ -51,7 +46,6 @@
                             <option value="">Any</option>
                             <option value="1-1">1 Bed/1 Bath</option>
                             <option value="2-2">2 Bed/2 Bath</option>
-                            <!-- Add more options as needed -->
                         </select>
                     </div>
                     <div class="box">
@@ -60,7 +54,6 @@
                             <option value="">Any</option>
                             <option value="single">Single Family</option>
                             <option value="multifamily">Multifamily</option>
-                            <!-- Add more options as needed -->
                         </select>
                     </div>
                 </div>
@@ -71,7 +64,6 @@
                             <option value="5">5 miles</option>
                             <option value="10">10 miles</option>
                             <option value="20">20 miles</option>
-                            <!-- Add more options as needed -->
                         </select>
                     </div>
                     <div class="box">
@@ -88,7 +80,6 @@
                                 <option value="">Any</option>
                                 <option value="150">$150/sqft</option>
                                 <option value="200">$200/sqft</option>
-                                <!-- Add more options as needed -->
                             </select>
 
                         </div>
