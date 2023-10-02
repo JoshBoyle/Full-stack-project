@@ -1,55 +1,3 @@
-/*!* Reset some default styles *!*/
-/*body, ul, li, img {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
-
-/*!* Style the header (navigation bar) *!*/
-/*!*header {*!*/
-/*!*    background-color: #333;*!*/
-/*!*    color: #fff;*!*/
-/*!*    padding: 10px 0;*!*/
-/*!*}*!*/
-
-/*nav ul {*/
-/*    list-style-type: none;*/
-/*    display: flex;*/
-/*    justify-content: flex-end; !* Align navigation items to the right *!*/
-/*}*/
-
-/*nav ul li {*/
-/*    margin-right: 20px;*/
-/*    padding: 9px 15px 9px 15px;*/
-/*}*/
-
-/*nav a {*/
-/*    font-size: 16px;*/
-/*    font-weight: 300;*/
-/*    color: rgb(42, 42, 51);*/
-/*    text-decoration: none;*/
-/*}*/
-
-/*#login-button {*/
-/*    margin-left: auto;*/
-/*}*/
-
-/*!* Style the main content container using Flexbox *!*/
-/*main {*/
-/*    display: flex;*/
-/*    flex-wrap: wrap; !* Allow sections to wrap to the next row if needed *!*/
-/*    padding: 20px;*/
-/*}*/
-
-/*!* Style each section *!*/
-/*section {*/
-/*    margin: 10px;*/
-/*    flex: 1; !* Distribute available space evenly among sections *!*/
-/*}*/
-
-/*#page-title {*/
-/*    text-align: center;*/
-/*}*/
-
 /* Reset some default styles */
 body, ul, li, a, img {
     margin: 0;
@@ -79,7 +27,7 @@ nav a {
 }
 
 .left-nav li {
-    margin-right: 20px;
+    margin-left: 20px;
 }
 
 .left-nav li:last-child {
@@ -93,32 +41,30 @@ nav a {
 }
 
 .logo {
-    flex: 1; /* Allow the logo to take available space */
-    text-align: center; /* Center the logo text horizontally */
+    justify-content: center;
+    /*flex: 1; !* Allow the logo to take available space *!*/
+    /*text-align: center; !* Center the logo text horizontally *!*/
 }
 
-.logo a {
-    font-size: 50px; /* Adjust font size as needed */
-    text-decoration: none;
-    color: #333; /* Dark text color for the logo */
-    font-weight: bold;
+.logo img {
+    justify-content: center;
+    margin-left: -12rem;
+    margin-bottom: 1rem;
 }
 
 .login-button a {
-    background-color: #ff5a5f; /* Red login button color similar to Zillow */
+    background-color: #5aa4ff; /* Red login button color similar to Zillow */
     color: #333; /* Dark text color for the login button */
     padding: 10px 20px; /* Adjust padding as needed */
     border-radius: 5px; /* Rounded corners for the button */
     text-decoration: none;
     font-weight: bold;
+    margin-right: 1rem;
 }
 
 .login-button a:hover {
-    background-color: #ff383d; /* Darker red on hover */
+    background-color: #316e9f;
 }
-
-/* Style the main content container as needed */
-
 
 /* Style the image section */
 #house-image {
@@ -142,66 +88,79 @@ nav a {
     margin-right: 26px;
 }
 
+
 #search-box input {
     font-size: 25px;
 }
 
-/* media query */
-@media (max-width: 768px) {
-    /* Adjust styles for smaller screens */
-    nav ul {
-        justify-content: center; /* Center navigation items on smaller screens */
-    }
+/* Advanced search */
 
-    .login-button {
-        margin-left: 0; /* Remove the margin on smaller screens */
-    }
+.search-form {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.column {
+    display:flex;
+    flex-direction:column;
+    /*justify-content: spac;*/
 }
 
-/*!*General tags*!*/
-/*a {*/
-/*    color: #000000;*/
-/*    text-decoration: none;*/
-/*}*/
 
-/*body {*/
-/*    margin: auto;*/
-/*    width: 2000px;*/
-/*    padding: 50px;*/
-/*    font-family: 'Avenir', sans-serif;*/
-/*    color: #33475b;*/
-/*}*/
+.search-button {
+    display:flex;
+    justify-content:center;
+}
 
-/*!* navigation *!*/
-/*#navigation {*/
-/*    display:flex;*/
-/*    justify-content: center;*/
-/*    list-style: none;*/
-/*    margin: 10px;*/
-/*    width: 90rem;*/
-/*    font-family: sans-serif;*/
-/*}*/
+.box {
+    background-color: #5f5f5f;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+}
 
-/*#navigation > #nav-left > ol > li,*/
-/*#navigation > #nav-right > li {*/
-/*    text-decoration: none;*/
-/*    display: block;*/
-/*    !*margin: 120px;*!*/
-/*    float: left;*/
-/*    margin-left: 2px;*/
-/*    border: 1px solid #000;*/
-/*    padding: 10px 10px;*/
-/*    background-color: #CCC;*/
-/*}*/
+#search-radius-box {
+    display:flex;
+    justify-content: center;
+}
 
-/*#navigation > #nav-right > li {*/
-/*    float:right;*/
-/*    margin-right: -50rem;*/
-/*}*/
 
-/*!*img*!*/
-/*#house-image {*/
-/*    margin-top: 2rem;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*}*/
+/* media query */
+@media (max-width: 1000px) {
+    /* Adjust styles for smaller screens */
+    nav {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        justify-content: center; /* Center navigation items on smaller screens */
+        text-align: center;
+        margin-left: -1rem;
+    }
+
+    .logo img {
+        margin-left: 0;
+    }
+
+    .login-button a {
+        margin-right: 0;
+    }
+
+    .search-form {
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+    }
+    .column {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+    }
+    /*.column {*/
+    /*    display:flex;*/
+    /*    justify-content: center;*/
+    /*}*/
+
+}

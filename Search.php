@@ -8,7 +8,7 @@
     <body>
         <?php include "header.php" ?>
         <div id="search-box">
-            <input type="text" placeholder="Search Property...">
+            <input type="text" placeholder="Enter Property Address...">
         </div>
     </body>
 </html>
