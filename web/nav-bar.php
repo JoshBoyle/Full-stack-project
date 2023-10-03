@@ -4,7 +4,7 @@
         <li><a href="AdvancedSearch.php">Advanced Search</a></li>
     </ul>
     <div class="logo">
-        <img src="../img/LOGO.png">
+        <img src="img/LOGO.png">
     </div>
     <div class="login-button">
         <a href="login.php">LOGIN</a>
