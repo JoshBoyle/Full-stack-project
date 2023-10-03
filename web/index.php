@@ -6,4 +6,5 @@
             <input type="text" placeholder="Enter Property Address...">
         </div>
     </body>
+    <?php include "footer.php" ?>
 </html>
