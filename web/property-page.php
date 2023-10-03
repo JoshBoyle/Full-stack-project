@@ -8,7 +8,7 @@
         <?php include "nav-bar.php" ?>
         <div class="container">
             <div class="image">
-                <img src="img/property-img.jpg" alt="Image Description">
+                <img src="../img/property-img.jpg" alt="Image Description">
             </div>
             <div class="text-box">
                 <h1>Good/Bad</h1>
