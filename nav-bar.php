@@ -1,6 +1,6 @@
 <nav>
     <ul class="left-nav">
-        <li><a href="Search.php">Search</a></li>
+        <li><a href="index.php">Search</a></li>
         <li><a href="AdvancedSearch.php">Advanced Search</a></li>
     </ul>
     <div class="logo">
