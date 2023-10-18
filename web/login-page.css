@@ -3,6 +3,10 @@ html {
     height: 100%;
 }
 
+/*#login-test{*/
+/*    background-color: white;*/
+/*}*/
+
 body {
     height: 100%;
     margin: 0;
@@ -80,4 +84,4 @@ body {
     cursor: pointer;
     outline: none;
 }
-view rawlogin-page.css hosted with ❤ by GitHub
+/*view rawlogin-page.css hosted with ❤ by GitHub*/
