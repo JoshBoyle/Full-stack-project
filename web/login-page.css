@@ -84,4 +84,14 @@ body {
     cursor: pointer;
     outline: none;
 }
+
+/* Style for incorrect input fields */
+.login-form-field:invalid {
+    border: 2px solid red; /* Add a red border for incorrect inputs */
+}
+
+/* Style for labels of incorrect input fields */
+label:invalid {
+    color: red; /* Change the label text color to red for incorrect inputs */
+}
 /*view rawlogin-page.css hosted with ❤ by GitHub*/
