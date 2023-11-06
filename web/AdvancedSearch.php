@@ -1,22 +1,26 @@
 <?php
 // this page requires a user with the MEMBER permission to view
+require_once "User.php";
 require_once "UserDao.php";
 
 $dao = new UserDao();
 try {
     // get the user object from the data store
-    $user = $dao->getUser("oimickboi");
+    $userData = $dao->getUser("oimickboi");
+    $user = new User($userData);
     echo '<pre>'; print_r($user); echo '</pre>';
-//    $permission = $user->hasPermission(User::MEMBER);
-//    echo $permission;
-//    if ($user->hasPermission(User::MEMBER)) {
-//    if ($permission) {
-//        echo "User has the permission";
-//    } else {
-//        echo $permission;
-////        echo "User does NOT have the permission";
-//    }
 
+    if ($user !== null) {
+        $permission = $user->hasPermission(User::MEMBER);
+//        echo $permission;
+        if ($permission) {
+//            echo $permission;
+            echo "User has the permission";
+        } else {
+//            echo $permission;
+            echo "User does NOT have the permission";
+        }
+    }
 } catch (Exception $e) {
     echo $e->getMessage();
 }
