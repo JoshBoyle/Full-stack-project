@@ -9,7 +9,7 @@ $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/";
 $dao = new UserDao();
 
 try {
-    $userData = $dao->getUserEmail($email);
+    $userData = $dao->getuseremail($email);
     echo '<pre>'; print_r($userData); echo '</pre>';
     $user = new User($userData);
     echo '<pre>'; print_r($user); echo '</pre>';

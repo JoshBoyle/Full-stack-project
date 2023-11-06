@@ -1,13 +1,11 @@
 <?php
 // login.php
 
-// TODO need regex to check for valid password
 session_start();
 
-if (isset($_SESSION["access_granted"]) && $_SESSION["access_granted"]) {
-    header("Location:granted.php");
-}
-// TODO connect this needs the email from the forms find a way to test it
+//if (isset($_SESSION["access_granted"]) && $_SESSION["access_granted"]) {
+//    header("Location:granted.php");
+//}
 $email = "";
 $password = "";
 if (isset($_SESSION["email_preset"])) {
@@ -45,6 +43,7 @@ if (isset($_SESSION["email_preset"])) {
             <input type="submit" name="submit" id="login-form-submit" value="Login"/>
         </div>
     </form>
+      <a href="signup.php">SignUp</a>
   </main>
 </body>
 <?php include "footer.php" ?>

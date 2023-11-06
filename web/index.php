@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
     <?php include "head-tag.php" ?>
     <body>

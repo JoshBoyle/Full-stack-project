@@ -10,6 +10,7 @@
 <!--                <li><a href="#">About Us</a></li>-->
 <!--                <li><a href="#">Contact</a></li>-->
                 <p>&copy; 2023 Real Estate Calculator</p>
+                <a href="logout.php">Logout</a>
             </ul>
         </div>
     </div>

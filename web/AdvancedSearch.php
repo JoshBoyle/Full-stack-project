@@ -7,16 +7,19 @@ session_start();
 $dao = new UserDao();
 try {
     // get the user object from the data store
-    echo $_SESSION["user"];
-    $userData = $dao->getUser($_SESSION["user"]);
+    echo $_SESSION["email"];
+//    echo $_SESSION["user"];
+    $userData = $dao->getUserEmail($_SESSION["email"]);
     $user = new User($userData);
+    echo '<pre>'; print_r($user); echo '</pre>';
     if ($user !== null) {
         $permission = $user->hasPermission(User::MEMBER);
         if ($permission) {
 //            echo "User has the permission";
             require_once "AdvancedSearchText.php";
         } else {
-//            header("Location:login.php");
+            $_SESSION["status"] = "Log In to access this page";
+            header("Location:login.php");
         }
     }
 } catch (Exception $e) {
