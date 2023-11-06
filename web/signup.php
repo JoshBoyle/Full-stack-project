@@ -38,7 +38,6 @@ $dao=new UserDao();
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-<!--            <input type="text" id="password" name="password" required>-->
 
             <label for="confirm-pass">Confirm Password:</label>
             <input type="password" id="confirm-pass" name="confirm-pass" required>
