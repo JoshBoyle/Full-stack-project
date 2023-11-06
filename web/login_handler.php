@@ -3,62 +3,38 @@
 session_start();
 require_once "UserDao.php";
 
-// todo for josh@gmail.com and pikachu these need to be variables from sql table
-// for simplification lets pretend i got these login credentials from an sql table.
-
 $email = $_POST["email"];
-//$username = $_POST["username"];
 $password = $_POST["password"];
-$pattern = "/^[a-za-z0-9._%+-]+@[a-za-z0-9.-]+\\.[a-za-z]{2,}$/";
+$pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/";
 $dao = new UserDao();
 
 try {
-    $userData = $dao->getUser($_SESSION[$email]);
-    $user = new User($userData);
+    $user = $dao->getUser($email);
+
+    if ($user) {
+        if ($user->getEmail() === $email && $user->getPassword() === $password) {
+            $_SESSION["access_granted"] = true;
+            $_SESSION["email"] = $email;
+            header("location: AdvancedSearch.php");
+        } elseif (!preg_match($pattern, $email)) {
+            handleInvalid("not a valid email");
+        } elseif ($user->getEmail() === $email && $user->getPassword() !== $password) {
+            handleInvalid("invalid password");
+        } else {
+            handleInvalid("email is not registered");
+        }
+    } else {
+        handleInvalid("invalid username and password");
+    }
 } catch (PDOException $e) {
-    return false;
+    handleInvalid("Database error");
 }
 
-$dbEmail = $user->getEmail();
-$dbPass = $user->getEmail();
-
-if ($dbEmail === $email &&
-    $dbPass == $password &&
-    preg_match($pattern, $email)) {
-    $_session["access_granted"] = true;
-    $_session["email"] = $email;
-    header("location:AdvancedSearch.php");
-} elseif (!preg_match($pattern, $email)) {
-    $status = "not a valid email";
-    $_session["status"] = $status;
-    $_session["email_preset"] = $email;
-    $_session["password_preset"] = $password;
-    $_session["access_granted"] = false;
-    header("location:login.php");
-} elseif ($dbEmail === $email &&
-        $dbPass != $password) {
-        $status = "invalid  password";
-        $_session["status"] = $status;
-        $_session["email_preset"] = $email;
-        $_session["password_preset"] = $password;
-        $_session["access_granted"] = false;
-        header("location:login.php");
-
-} elseif ($dbEmail != $email &&
-    $dbPass == $password) {
-    $status = "email is not registered";
-    $_session["status"] = $status;
-    $_session["email_preset"] = $email;
-    $_session["password_preset"] = $password;
-    $_session["access_granted"] = false;
-    header("location:login.php");
-
-} else {
-    $status = "invalid username and password";
-    $_session["status"] = $status;
-    $_session["email_preset"] = $email;
-    $_session["password_preset"] = $password;
-    $_session["access_granted"] = false;
-    header("location:login.php");
+function handleInvalid($status) {
+    $_SESSION["status"] = $status;
+    $_SESSION["email_preset"] = $_POST["email"];
+    $_SESSION["password_preset"] = $_POST["password"];
+    $_SESSION["access_granted"] = false;
+    header("location: login.php");
 }
 ?>
