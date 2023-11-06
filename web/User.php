@@ -26,7 +26,6 @@ class User
    public function getUserName()
     {
         return $this->username;
-
     }
 
 
@@ -42,7 +41,6 @@ class User
     }
 
     public function hasPermission($desiredPermission) {
-        // Define the permission levels (adjust these as needed)
         $permissionLevels = [
             'admin' => 1,
             'guest' => 2,

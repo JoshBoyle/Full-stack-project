@@ -1,7 +1,6 @@
 <?php
-//require_once "User.php";
-require_once "UserDao.php";
 // signup_handler.php
+require_once "UserDao.php";
 $email = $_POST["email"];
 $username = $_POST["username"];
 $password = $_POST["password"];
@@ -10,20 +9,12 @@ $pattern = "/^[a-za-z0-9._%+-]+@[a-za-z0-9.-]+\\.[a-za-z]{2,}$/";
 
 if (preg_match($pattern, $email)
     && $password == $confirm_password) {
-//    require_once "UserDao.php";
     if (isset($_POST["signUpButton"])) {
-//        $newUser = new User($email, $password);
-
         echo "$email, $password";
-
-        // temporaries for testing
         $access = 'member';
         $signUpDate = date("Y-m-d H:i:s");
-        //
-
         $dao = new UserDao();
         try {
-//            $dao->saveUser($email, $password);
             $dao->saveUser($email, $username, $password, $access, $signUpDate);
         } catch (Exception $e) {
             var_dump($e);

@@ -45,18 +45,6 @@ $dao=new UserDao();
             <button type="submit" name="signUpButton" value="Submit">Sign Up</button>
         </form>
     </div>
-    <?php
-    $users = $dao->getUsers();
-    echo "<table>";
-    foreach ($users as $user) {
-        echo "<tr>";
-        echo "<td>" . $user["email"] . "</td>";
-        echo "<td>" . $user["password"] . "</td>";
-        echo "<td>" . $user["access"] . "</td>";
-        echo "<td>" . $user["sign_up_date"] . "</td>";
-        echo "</tr>";
-    }
-    ?>
 </body>
 </html>
 
