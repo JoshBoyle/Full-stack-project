@@ -3,10 +3,9 @@ require_once "UserDao.php";
 class User
 {
 
-    const GUEST = "GUEST";
+    const GUEST = "guest";
     const MEMBER = "member";
-//    const MEMBER = "MEMBER";
-    const ADMIN = "ADMIN";
+    const ADMIN = "admin";
     private $userid;
     private $username;
     private $email;
@@ -23,27 +22,6 @@ class User
         $this->date = $userData['sign_up_date'];
         $this->permissions = $userData['access'] ;
     }
-
-//    public function __construct($userid, $username, $password, $email, $date, $permissions)
-//    {
-//        $this->userid = $userid;
-//        $this->username = $username;
-//        $this->password = $password;
-//        $this->email = $email;
-//        $this->date = $date;
-//        $this->permissions = $permissions;
-//    }
-//
-//    public function __construct()
-//    {
-//        if ($row = $query->fetch())
-//
-//        $this->username = $;
-//        $this->password = $password;
-//        $this->email = $email;
-//        $this->date = $date;
-//        $this->permissions = $permissions;
-//    }
 
    public function getUserName()
     {
@@ -63,11 +41,6 @@ class User
         return $this->email;
     }
 
-//    public function hasPermission($permission)
-//    {
-//        // return true if permission is found
-//        return in_array($permission, $this->permissions);
-//    }
     public function hasPermission($desiredPermission) {
         // Define the permission levels (adjust these as needed)
         $permissionLevels = [
@@ -80,6 +53,6 @@ class User
             return $permissionLevels[$this->permissions] <= $permissionLevels[$desiredPermission];
         }
 
-        return false; // Return false if the permission level or desiredPermission is not found
+        return false;
     }
 } // end User

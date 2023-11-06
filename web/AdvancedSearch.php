@@ -8,16 +8,11 @@ try {
     // get the user object from the data store
     $userData = $dao->getUser("oimickboi");
     $user = new User($userData);
-    echo '<pre>'; print_r($user); echo '</pre>';
-
     if ($user !== null) {
         $permission = $user->hasPermission(User::MEMBER);
-//        echo $permission;
         if ($permission) {
-//            echo $permission;
             echo "User has the permission";
         } else {
-//            echo $permission;
             echo "User does NOT have the permission";
         }
     }
