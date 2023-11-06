@@ -118,6 +118,32 @@ class UserDao
         }
     }
 
+
+    public function getUserEmail($email)
+    {
+        try {
+            $conn = $this->getConnection();
+            $saveQuery = "SELECT * FROM users WHERE email = :email";
+            $q = $conn->prepare($saveQuery);
+            $q->bindParam(':email', $email, PDO::PARAM_STR);
+
+            $q->execute();
+            $result = $q->fetch(PDO::FETCH_ASSOC);
+            $conn = null;
+            return $result;
+//            if ($result) {
+//                return new User($result['user_id'],
+//                    $result['user_name'], $result['password'],
+//                    $result['email'], $result['sign_up_date'],
+//                    $result['access']);
+//            } else {
+//                return null;
+//            }
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
     public function getPermission($user)
     {
         try {
