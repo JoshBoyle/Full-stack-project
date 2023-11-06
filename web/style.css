@@ -154,6 +154,17 @@ nav a {
     color: #333;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer li a {
+    text-decoration: none;
+    color: #333; /* Dark text color for navigation links */
+    font-weight: bold;
+}
+
 /* media query */
 @media (max-width: 1000px) {
     /* Adjust styles for smaller screens */
