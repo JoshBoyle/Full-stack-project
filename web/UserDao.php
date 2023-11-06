@@ -96,7 +96,8 @@ class UserDao
     {
         try {
             $conn = $this->getConnection();
-            $saveQuery = "SELECT :user FROM users";
+//            $saveQuery = "SELECT * FROM users WHERE 'user_name' = :user";
+            $saveQuery = "SELECT * FROM users WHERE user_name = :user";
             $q = $conn->prepare($saveQuery);
             $q->bindParam(':user', $user, PDO::PARAM_STR);
 
