@@ -9,22 +9,25 @@ $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/";
 $dao = new UserDao();
 
 try {
-    $user = $dao->getUser($email);
-
+    $userData = $dao->getUserEmail($email);
+    echo '<pre>'; print_r($userData); echo '</pre>';
+    $user = new User($userData);
+    echo '<pre>'; print_r($user); echo '</pre>';
+    echo $user->getEmail();
     if ($user) {
-        if ($user->getEmail() === $email && $user->getPassword() === $password) {
+        if ($user->getEmail() === $email && $user->getPass() === $password) {
             $_SESSION["access_granted"] = true;
             $_SESSION["email"] = $email;
             header("location: AdvancedSearch.php");
         } elseif (!preg_match($pattern, $email)) {
             handleInvalid("not a valid email");
-        } elseif ($user->getEmail() === $email && $user->getPassword() !== $password) {
+        } elseif ($user->getEmail() === $email && $user->getPass() !== $password) {
             handleInvalid("invalid password");
         } else {
             handleInvalid("email is not registered");
         }
     } else {
-        handleInvalid("invalid username and password");
+        handleInvalid("invalid email and password");
     }
 } catch (PDOException $e) {
     handleInvalid("Database error");
