@@ -32,6 +32,9 @@ if (
     $den = pow((1 + $r / $n), $n * $t) - 1;
 
     if (isset($_POST["property_tax"])) {
+        $_SESSION["property_tax_preset"] = $_POST["property_tax"];
+        $_SESSION["home_insurance_preset"] = $_POST["home_insurance"];
+        $_SESSION["hoa_dues_preset"] = $_POST["hoa_dues"];
         $prop_tax = (float)$_POST["home_price"] * ((float)$_POST["property_tax"]) / 100;
         $monthly_ins = (float)$_POST["home_insurance"];
         $_SESSION["total"] = ($num / $den) + ($prop_tax + $monthly_ins + $_POST["hoa_dues"]);
