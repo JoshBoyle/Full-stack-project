@@ -6,10 +6,8 @@ session_start();
 
 $dao = new UserDao();
 try {
-    echo $_SESSION["email"];
     $userData = $dao->getUserEmail($_SESSION["email"]);
     $user = new User($userData);
-    echo '<pre>'; print_r($user); echo '</pre>';
     if ($user !== null) {
         $permission = $user->hasPermission(User::MEMBER);
         if ($permission) {

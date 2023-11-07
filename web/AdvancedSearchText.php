@@ -1,98 +1,58 @@
+<?php
+$home_price ="";
+$down_payment ="";
+$loan_program ="";
+$interest_rate ="";
+//session_start();
+if (isset($_SESSION["email_preset"])) {
+    $email = $_SESSION["email_preset"];
+    $password = $_SESSION["password_preset"];
+}
+?>
 <html>
 <head>
     <title>AdvancedSearch</title>
+    <link rel="stylesheet" type="text/css" href="advancedsearch.css">
     <?php include "head-tag.php" ?>
 </head>
 <body>
 <?php include "header.php" ?>
 <section class="advanced search">
-    <div class="search-form">
-        <div class="column">
-            <div class="box">
-                <div class="price">
-                    <label for="price-min">Price Min:</label>
-                    <select id="price-min">
-                        <option value="">Any</option>
-                        <option value="100000">$100,000</option>
-                        <option value="200000">$200,000</option>
-                    </select>
-                    <label for="price-max">Price Max:</label>
-                    <select id="price-max">
-                        <option value="">Any</option>
-                        <option value="500000">$500,000</option>
-                        <option value="1000000">$1,000,000</option>
-                        <!-- Add more options as needed -->
-                    </select>
-                </div>
-            </div>
-            <div class="box">
-                <div class="rent">
-                    <label for="rent-min">Rent Min:</label>
-                    <select id="rentm">
-                        <option value="">Any</option>
-                        <option value="100000">$100,000</option>
-                        <option value="200000">$200,000</option>
-                    </select>
-                    <label for="rent-max">Rent Max:</label>
-                    <select id="rent-max">
-                        <option value="">Any</option>
-                        <option value="100000">$100,000</option>
-                        <option value="200000">$200,000</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="box">
-                <label for="bed-bath">Bed/Bath:</label>
-                <select id="bed-bath">
-                    <option value="">Any</option>
-                    <option value="1-1">1 Bed/1 Bath</option>
-                    <option value="2-2">2 Bed/2 Bath</option>
-                </select>
-            </div>
-            <div class="box">
-                <label for="single-multifamily">Single/Multifamily:</label>
-                <select id="single-multifamily">
-                    <option value="">Any</option>
-                    <option value="single">Single Family</option>
-                    <option value="multifamily">Multifamily</option>
-                </select>
-            </div>
-        </div>
-        <div class="column">
-            <div id="search-radius-box" class="box">
-                <label for="search-radius">Search Radius:</label>
-                <select id="search-radius">
-                    <option value="5">5 miles</option>
-                    <option value="10">10 miles</option>
-                    <option value="20">20 miles</option>
-                </select>
-            </div>
-            <div class="box">
-                <div id="price-sqft">
-                    <label for="price-sqft-min">Price per Sqft Min:</label>
-                    <select id="price-sqft-min">
-                        <option value="">Any</option>
-                        <option value="50">$50/sqft</option>
-                        <option value="100">$100/sqft</option>
-                        <!-- Add more options as needed -->
-                    </select>
-                    <label for="price-sqft-max">Price per Sqft Max:</label>
-                    <select id="price-sqft-max">
-                        <option value="">Any</option>
-                        <option value="150">$150/sqft</option>
-                        <option value="200">$200/sqft</option>
-                    </select>
+    <h1>Mortgage Calculator</h1>
 
-                </div>
-            </div>
+    <!-- First Form: Home Price, Down Payment, and Loan Program -->
+    <form action="advancedsearch_handler.php" method="POST">
+        <h2>Loan Information</h2>
 
-        </div>
-    </div>
-    <div class="search-button">
-        <button type="submit">Search</button>
-    </div>
+        <label for="home_price">Home Price:</label>
+        <input type="text" id="home_price" name="home_price" placeholder="$" value="<?php echo $home_price; ?>"/>
+
+        <label for="down_payment">Down Payment:</label>
+        <input type="text" id="down_payment" name="down_payment" placeholder="$" />
+
+        <label for="loan_program">Loan Program:</label>
+        <select id="loan_program" name="loan_program">
+            <option value="30_year_fixed">30 Year Fixed</option>
+            <option value="15_year_fixed">15 Year Fixed</option>
+            <option value="5_year_arm">5 Year ARM</option>
+        </select>
+
+        <label for="interest_rate">Interest Rate:</label>
+        <input type="text" id="interest_rate" name="interest_rate" placeholder="%" />
+        <button type="submit">Calculate</button>
+
+    </form>
+</section>
+<section id="output">
+    <?php
+    if (isset($_SESSION["total"])) {
+        echo "<div id='total'>" .  $_SESSION["total"] . "</div>";
+        unset($_SESSION["total"]);
+    }
+    ?>
+<!--    <div id="login-error-msg-holder">-->
+<!--        <p id="login-error-msg">Invalid email <span id="error-msg-second-line">and/or password</span></p>-->
+<!--    </div>-->
 </section>
 </body>
 <?php include "footer.php" ?>
