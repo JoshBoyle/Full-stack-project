@@ -4,6 +4,7 @@ require_once "User.php";
 require_once "UserDao.php";
 session_start();
 
+
 $dao = new UserDao();
 try {
     $userData = $dao->getUserEmail($_SESSION["email"]);
