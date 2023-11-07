@@ -64,5 +64,5 @@ if (isset($_SESSION["home_price_preset"]) or
     ?>
 </section>
 </body>
-<?php //include "footer.php" ?>
+<?php include "footer.php" ?>
 </html>

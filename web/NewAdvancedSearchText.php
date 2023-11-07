@@ -77,5 +77,5 @@ foreach ($session_keys as $session_key => $variable_name) {
     ?>
 </section>
 </body>
-<?php //include "footer.php" ?>
+<?php include "footer.php" ?>
 </html>
