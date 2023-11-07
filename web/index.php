@@ -1,5 +1,6 @@
 <?php
 session_start();
+header("Location:AdvancedSearch.php");
 ?>
 <html>
     <?php include "head-tag.php" ?>

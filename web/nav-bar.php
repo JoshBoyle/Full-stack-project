@@ -1,12 +1,12 @@
 <nav>
     <ul class="left-nav">
-        <li><a href="index.php">Search</a></li>
-        <li><a href="AdvancedSearch.php">Advanced Search</a></li>
+        <li><a href="index.php">Home</a></li>
+<!--        <li><a href="AdvancedSearch.php">Advanced</a></li>-->
     </ul>
     <div class="logo">
         <img src="img/LOGO.png" alt="logo prototype">
     </div>
     <div class="login-button">
-        <a href="login.php">LOGIN</a>
+        <a href="login.php">Log Out</a>
     </div>
 </nav>
