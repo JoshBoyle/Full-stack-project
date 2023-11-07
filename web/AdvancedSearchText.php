@@ -3,7 +3,7 @@ $home_price ="";
 $down_payment ="";
 $loan_program ="";
 $interest_rate ="";
-session_start();
+//session_start();
 if (isset($_SESSION["email_preset"])) {
     $email = $_SESSION["email_preset"];
     $password = $_SESSION["password_preset"];
