@@ -25,16 +25,21 @@ if (isset($_SESSION["home_price_preset"]) or
 <?php include "header.php" ?>
 <section class="advanced search">
     <h1>Mortgage Calculator</h1>
-
+    <?php
+    if (isset($_SESSION["status"])) {
+        echo "<div id='status'>" .  $_SESSION["status"] . "</div>";
+        unset($_SESSION["status"]);
+    }
+    ?>
     <!-- First Form: Home Price, Down Payment, and Loan Program -->
     <form action="advancedsearch_handler.php" method="POST">
         <h2>Loan Information</h2>
 
         <label for="home_price">Home Price:</label>
-        <input type="text" id="home_price" name="home_price" placeholder="$" value="<?php echo $home_price; ?>"/>
+        <input type="text" id="home_price" name="home_price" placeholder="$" value="<?php echo $home_price; ?>" required/>
 
         <label for="down_payment">Down Payment:</label>
-        <input type="text" id="down_payment" name="down_payment" placeholder="$" value="<?php echo $down_payment; ?>" />
+        <input type="text" id="down_payment" name="down_payment" placeholder="$" value="<?php echo $down_payment; ?>" required/>
 
         <label for="loan_program">Loan Program:</label>
         <select id="loan_program" name="loan_program">
@@ -44,7 +49,7 @@ if (isset($_SESSION["home_price_preset"]) or
         </select>
 
         <label for="interest_rate">Interest Rate:</label>
-        <input type="text" id="interest_rate" name="interest_rate" placeholder="%" value="<?php echo $interest_rate; ?>" />
+        <input type="text" id="interest_rate" name="interest_rate" placeholder="%" value="<?php echo $interest_rate; ?>" required/>
         <button type="submit">Calculate</button>
 
     </form>
