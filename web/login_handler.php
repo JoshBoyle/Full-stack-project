@@ -18,7 +18,7 @@ try {
         if ($user->getEmail() === $email && $user->getPass() === $password) {
             $_SESSION["access_granted"] = true;
             $_SESSION["email"] = $email;
-            header("location: AdvancedSearch.php");
+            header("location: index.php");
         } elseif (!preg_match($pattern, $email)) {
             handleInvalid("not a valid email");
         } elseif ($user->getEmail() === $email && $user->getPass() !== $password) {
