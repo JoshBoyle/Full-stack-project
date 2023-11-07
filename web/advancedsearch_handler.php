@@ -19,7 +19,32 @@ echo "<br />";
 echo $n;
 echo "<br />";
 
-//$num = $P * ($r / $n) * pow((1 + $r / $n), ($n * $t));
-//$den = pow((1 + $r/$n), $n*$t)-1;
-//$payment =  $num / $den;
+$x = $r / $n;
+$y = pow((1 + $r / $n), ($n * $t));
 
+echo "<br />";
+echo 'P: ' ;
+echo $P;
+echo "<br />";
+echo 'x: ';
+echo $x;
+echo "<br />";
+echo 'y: ';
+echo $y;
+echo "<br />";
+echo "den: ";
+$den = pow((1 + $r/$n), $n*$t)-1;
+echo $den;
+echo "<br />";
+echo "num: ";
+$num = $P * $x * $y;
+echo $num;
+echo "newNum:";
+//$num = $P * $x * $y;
+$newnum = $P * ($r / $n) * pow((1 + $r / $n), ($n * $t));
+echo $newnum;
+//$den = pow((1 + $r/$n), $n*$t)-1;
+
+//$payment =  $num / $den;
+//echo $payment;
+//

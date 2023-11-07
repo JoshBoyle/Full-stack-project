@@ -9,7 +9,6 @@ if (isset($_SESSION["email_preset"])) {
     $password = $_SESSION["password_preset"];
 }
 ?>
-?>
 <html>
 <head>
     <title>AdvancedSearch</title>
