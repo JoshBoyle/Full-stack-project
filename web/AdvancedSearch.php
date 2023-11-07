@@ -12,7 +12,7 @@ try {
     if ($user !== null) {
         $permission = $user->hasPermission(User::MEMBER);
         if ($permission) {
-            require_once "AdvancedSearchText.php";
+            require_once "NewAdvancedSearchText.php";
         } else {
             $_SESSION["status"] = "Log In to access this page";
             header("Location:login.php");

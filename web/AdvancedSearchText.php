@@ -57,10 +57,7 @@ if (isset($_SESSION["home_price_preset"]) or
         unset($_SESSION["total"]);
     }
     ?>
-<!--    <div id="login-error-msg-holder">-->
-<!--        <p id="login-error-msg">Invalid email <span id="error-msg-second-line">and/or password</span></p>-->
-<!--    </div>-->
 </section>
 </body>
-<?php include "footer.php" ?>
+<?php //include "footer.php" ?>
 </html>

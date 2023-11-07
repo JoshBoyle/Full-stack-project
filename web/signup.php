@@ -26,9 +26,9 @@ $dao=new UserDao();
             unset($_SESSION["status"]);
         }
         ?>
-        <div id="login-error-msg-holder">
-            <p id="login-error-msg">Invalid email <span id="error-msg-second-line">and/or password</span></p>
-        </div>
+<!--        <div id="login-error-msg-holder">-->
+<!--            <p id="login-error-msg">Invalid email <span id="error-msg-second-line">and/or password</span></p>-->
+<!--        </div>-->
         <form id="signup-form" action="signup_handler.php" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" value="<?php echo $email; ?>" required>

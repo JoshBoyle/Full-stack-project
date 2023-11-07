@@ -14,5 +14,11 @@ $n = 12;
 
 $num = $P * ($r / $n) * pow((1 + $r / $n), ($n * $t));
 $den = pow((1 + $r/$n), $n*$t)-1;
-$_SESSION["total"] = $num / $den;
-header("Location:AdvancedSearch.php");
+if (isset($_POST["home_price"])) {
+    $prop_tax = (float)$_POST["home_price"] * ((float)$_POST["property_tax_preset"])/100;
+    $monthly_ins = (float)$_POST["home_insurance_preset"];
+    $_SESSION["total"] = ($num / $den) + ($prop_tax + $monthly_ins + $_POST["hoa_dues_preset"]);
+} else {
+    $_SESSION["total"] = $num / $den;
+}
+//header("Location:AdvancedSearch.php");
