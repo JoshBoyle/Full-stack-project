@@ -38,6 +38,6 @@ function handleInvalid($status) {
     $_SESSION["email_preset"] = $_POST["email"];
     $_SESSION["password_preset"] = $_POST["password"];
     $_SESSION["access_granted"] = false;
-    header("location: login.php");
+//    header("location: login.php");
 }
 ?>

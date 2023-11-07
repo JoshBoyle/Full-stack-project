@@ -3,10 +3,10 @@
 require_once "User.php";
 class UserDao
 {
-    private $host = "localhost";
-    private $db = "website_db";
-    private $user = "root";
-    private $pass = "";
+    private $host = "bmlx3df4ma7r1yh4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+    private $db = "svewsamturcpvoqy";
+    private $user = "v9n32qs2e3pbvdp5";
+    private $pass = "xcs4unf4jkkl8dy9";
 
     public function getConnection()
     {
