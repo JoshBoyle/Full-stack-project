@@ -1,7 +1,8 @@
 <nav>
     <ul class="left-nav">
-        <li><a href="index.php">Home</a></li>
-<!--        <li><a href="AdvancedSearch.php">Advanced</a></li>-->
+        <li><a href="index.php">Basic</a></li>
+<!--        <li><a href="NewAdvancedSearch.php">Advanced</a></li>-->
+        <li><a href="AdvancedSearch.php">Advanced</a></li>
     </ul>
     <div class="logo">
         <img src="img/LOGO.png" alt="logo prototype">
