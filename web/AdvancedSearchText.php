@@ -25,16 +25,16 @@ if (isset($_SESSION["home_price_preset"]) or
 <?php include "header.php" ?>
 <section class="advanced search">
     <h1>Mortgage Calculator</h1>
-    <?php
-    if (isset($_SESSION["status"])) {
-        echo "<div id='status'>" .  $_SESSION["status"] . "</div>";
-        unset($_SESSION["status"]);
-    }
-    ?>
     <!-- First Form: Home Price, Down Payment, and Loan Program -->
     <form action="advancedsearch_handler.php" method="POST">
         <h2>Loan Information</h2>
 
+        <?php
+        if (isset($_SESSION["status"])) {
+            echo "<div id='status'>" .  $_SESSION["status"] . "</div>";
+            unset($_SESSION["status"]);
+        }
+        ?>
         <label for="home_price">Home Price:</label>
         <input type="text" id="home_price" name="home_price" placeholder="$" value="<?php echo $home_price; ?>" required/>
 
