@@ -53,6 +53,6 @@ if (
 }
 
 // Redirect to another page or display a message as needed
-header("Location: result_page.php");
+//header("Location: result_page.php");
 exit();
 ?>
