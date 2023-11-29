@@ -18,8 +18,9 @@ if (isset($_SESSION["home_price_preset"]) or
 <html>
 <head>
     <script src="jquery-3.7.1.slim.min.js"></script>
-    <title>AdvancedSearch</title>
+    <script src="validation.js"></script>
     <link rel="stylesheet" type="text/css" href="advancedsearch.css">
+    <title>AdvancedSearch</title>
     <?php include "head-tag.php" ?>
 </head>
 <body>
@@ -39,10 +40,10 @@ if (isset($_SESSION["home_price_preset"]) or
         }
         ?>
         <label for="home_price">Home Price:</label>
-        <input type="text" id="home_price" name="home_price" placeholder="$" value="<?php echo $home_price; ?>" required/>
+        <input type="text" id="home_price" name="home_price" placeholder="$" value="<?php echo $home_price; ?>" />
 
         <label for="down_payment">Down Payment:</label>
-        <input type="text" id="down_payment" name="down_payment" placeholder="$" value="<?php echo $down_payment; ?>" required/>
+        <input type="text" id="down_payment" name="down_payment" placeholder="$" value="<?php echo $down_payment; ?>" />
 
         <label for="loan_program">Loan Program:</label>
         <select id="loan_program" name="loan_program">
@@ -52,8 +53,8 @@ if (isset($_SESSION["home_price_preset"]) or
         </select>
 
         <label for="interest_rate">Interest Rate:</label>
-        <input type="text" id="interest_rate" name="interest_rate" placeholder="%" value="<?php echo $interest_rate; ?>" required/>
-        <button type="submit">Calculate</button>
+        <input type="text" id="interest_rate" name="interest_rate" placeholder="%" value="<?php echo $interest_rate; ?>" />
+        <button id="calculateBtn" type="submit">Calculate</button>
 
     </form>
 </section>
