@@ -2,6 +2,7 @@
 body, ul, li, a, img, p{
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Style the header (navigation bar) */
@@ -9,6 +10,7 @@ header {
     background-color: transparent; /* No background color */
     color: #333; /* Dark text color */
     padding: 10px 0;
+    font-family: 'Open Sans', sans-serif;
 }
 
 nav {
@@ -171,6 +173,7 @@ footer li a {
     nav {
         flex-direction: column;
         justify-content: center;
+        font-family: 'Open Sans', sans-serif;
     }
 
     nav ul {
