@@ -36,29 +36,6 @@ class UserDao
         $q->execute();
     }
 
-    public function getUsers()
-    {
-        $conn = $this->getConnection();
-        return $conn->query("SELECT * FROM users");
-    }
-
-    public function getUser($user)
-    {
-        try {
-            $conn = $this->getConnection();
-            $saveQuery = "SELECT * FROM users WHERE user_name = :user";
-            $q = $conn->prepare($saveQuery);
-            $q->bindParam(':user', $user, PDO::PARAM_STR);
-
-            $q->execute();
-            $result = $q->fetch(PDO::FETCH_ASSOC);
-            $conn = null;
-            return $result;
-        } catch (PDOException $e) {
-            return false;
-        }
-    }
-
     public function getUserEmail($email)
     {
         try {
@@ -74,23 +51,5 @@ class UserDao
         } catch (PDOException $e) {
             return false;
         }
-    }
-
-    public function getPermission($user)
-    {
-        try {
-            $conn = $this->getConnection();
-            $saveQuery = "SELECT access FROM users WHERE user_name = :user";
-            $q = $conn->prepare($saveQuery);
-            $q->bindParam(':user', $user, PDO::PARAM_STR);
-
-            $q->execute();
-            $result = $q->fetch(PDO::FETCH_ASSOC);
-            $conn = null;
-            return $result;
-        } catch (PDOException $e) {
-            return false;
-        }
-
     }
 } // end Dao
