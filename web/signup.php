@@ -3,7 +3,7 @@ session_start();
 $email = "";
 $password = "";
 if (isset($_SESSION["email_preset"])) {
-    $username = $_SESSION["username_preset"];
+    $username = isset($_SESSION["username_preset"]) ? $_SESSION["username_preset"] : "";
     $email = $_SESSION["email_preset"];
     $password = $_SESSION["password_preset"];
     $confirmPassword = $_SESSION["password_preset"];
