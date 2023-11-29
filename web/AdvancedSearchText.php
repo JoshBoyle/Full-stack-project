@@ -17,11 +17,14 @@ if (isset($_SESSION["home_price_preset"]) or
 ?>
 <html>
 <head>
+    <script src="jquery-3.7.1.slim.min.js"></script>
     <title>AdvancedSearch</title>
     <link rel="stylesheet" type="text/css" href="advancedsearch.css">
     <?php include "head-tag.php" ?>
 </head>
 <body>
+
+
 <?php include "header.php" ?>
 <section class="advanced search">
     <h1>Mortgage Calculator</h1>

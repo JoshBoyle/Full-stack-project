@@ -8,7 +8,6 @@ $password = $_POST["password"];
 echo '<pre>'; print_r($email); echo '</pre>';
 echo '<pre>'; print_r($password); echo '</pre>';
 
-
 $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/";
 $dao = new UserDao();
 
