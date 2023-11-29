@@ -48,19 +48,25 @@ if (preg_match($pattern, $email) && $password == $confirm_password) {
     header("Location: index.php");
 } elseif (!preg_match($pattern, $email)) {
     $status = "Not a valid email";
+    $_SESSION["access_granted"] = false;
 } elseif ($password != $confirm_password) {
     $status = "Passwords do not match";
+    $_SESSION["access_granted"] = false;
 } else {
     $status = "Invalid input";
+    $_SESSION["access_granted"] = false;
 }
 
+if ($_SESSION["access_granted"] == false) {
 // Store relevant data in session for displaying in the signup.php page
-$_SESSION["status"] = $status;
-$_SESSION["email_preset"] = $email;
-$_SESSION["username_preset"] = $username;
-$_SESSION["password_preset"] = $password;
-$_SESSION["confirm_password_preset"] = $confirm_password;
-$_SESSION["access_granted"] = false;
+    $_SESSION["status"] = $status;
+    $_SESSION["email_preset"] = $email;
+    $_SESSION["username_preset"] = $username;
+    $_SESSION["password_preset"] = $password;
+    $_SESSION["confirm_password_preset"] = $confirm_password;
+    $_SESSION["access_granted"] = false;
 
-header("Location: signup.php");
+    header("Location: signup.php");
+}
+
 ?>
