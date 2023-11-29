@@ -8,6 +8,18 @@ function sanitize_input($input)
     return htmlspecialchars(strip_tags(trim($input)), ENT_QUOTES, 'UTF-8');
 }
 
+// Function to generate a random salt
+function generateSalt($length = 16)
+{
+    return bin2hex(random_bytes($length));
+}
+
+// Function to hash the password with the salt using SHA-256
+function hashPassword($password, $salt)
+{
+    return hash('sha256', $password . $salt);
+}
+
 $email = sanitize_input($_POST["email"]);
 $username = sanitize_input($_POST["username"]);
 $password = sanitize_input($_POST["password"]);
@@ -15,12 +27,18 @@ $confirm_password = sanitize_input($_POST["confirm-pass"]);
 $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
 
 if (preg_match($pattern, $email) && $password == $confirm_password) {
+    // Generate a random salt for each user
+    $salt = generateSalt();
+
+    // Hash the password with the salt using SHA-256
+    $hashedPassword = hashPassword($password, $salt);
+
     if (isset($_POST["signUpButton"])) {
         $access = 'member';
         $signUpDate = date("Y-m-d H:i:s");
         $dao = new UserDao();
         try {
-            $dao->saveUser($email, $username, $password, $access, $signUpDate);
+            $dao->saveUser($email, $username, $hashedPassword, $salt, $access, $signUpDate);
         } catch (Exception $e) {
             var_dump($e);
             die;
@@ -45,3 +63,4 @@ $_SESSION["confirm_password_preset"] = $confirm_password;
 $_SESSION["access_granted"] = false;
 
 header("Location: signup.php");
+?>
