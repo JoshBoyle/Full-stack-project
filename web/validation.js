@@ -6,12 +6,20 @@ $(document).ready(function () {
 
         var moneyPattern = /^\$?\d{1,3}(?:,?\d{3})*(?:\.\d{2})?$/;
 
+        var validationMessages = "";
+
         if (!moneyPattern.test(homePrice.trim())) {
-            alert("Please enter a valid Home Price");
-        } else if (!moneyPattern.test(downPayment.trim())) {
-            alert("Please enter a valid Down Payment");
-        } else if (interestRate.trim() === '' || isNaN(interestRate)) {
-            alert("Please enter a valid Interest Rate");
+            validationMessages += "Please enter a valid Home Price\n";
+        }
+        if (!moneyPattern.test(downPayment.trim())) {
+            validationMessages += "Please enter a valid Down Payment\n";
+        }
+        if (interestRate.trim() === '' || isNaN(interestRate)) {
+            validationMessages += "Please enter a valid Interest Rate\n";
+        }
+
+        if (validationMessages !== "") {
+            alert(validationMessages);
         } else {
             // If all validation passes, submit the form
             $("#loanForm").submit();

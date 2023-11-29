@@ -19,6 +19,7 @@ if (isset($_SESSION["home_price_preset"]) or
 <head>
     <script src="jquery-3.7.1.slim.min.js"></script>
     <script src="validation.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
     <link rel="stylesheet" type="text/css" href="advancedsearch.css">
     <title>AdvancedSearch</title>
     <?php include "head-tag.php" ?>

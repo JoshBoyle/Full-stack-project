@@ -3,7 +3,7 @@ session_start();
 $email = "";
 $password = "";
 if (isset($_SESSION["email_preset"])) {
-    $username = $_SESSION["username_preset"];
+    $username = isset($_SESSION["username_preset"]) ? $_SESSION["username_preset"] : "";
     $email = $_SESSION["email_preset"];
     $password = $_SESSION["password_preset"];
     $confirmPassword = $_SESSION["password_preset"];
@@ -31,7 +31,7 @@ $dao=new UserDao();
 <!--        </div>-->
         <form id="signup-form" action="signup_handler.php" method="post">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" value="<?php echo $email; ?>" required>
+            <input type="text" id="username" name="username" value="<?php echo $username; ?>" required>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" value="<?php echo $email; ?>" required>
