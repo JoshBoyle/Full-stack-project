@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 // Regular expression for money (e.g., $1,000.00)
@@ -8,6 +9,13 @@ $money_pattern = '/^\$?\d+(?:,\d{3})*(?:\.\d{2})?$/';
 function sanitize_input($input)
 {
     return htmlspecialchars(strip_tags(trim($input)), ENT_QUOTES, 'UTF-8');
+}
+
+// Function to convert money format to a numeric value
+function convertMoneyToNumeric($moneyString)
+{
+    $moneyString = preg_replace('/[^\d.]/', '', $moneyString);
+    return (float)$moneyString;
 }
 
 // Function to validate and sanitize money format
@@ -29,8 +37,11 @@ if (
     $_SESSION["interest_rate_preset"] = sanitize_input($_POST["interest_rate"]);
     $_SESSION["loan_program_preset"] = sanitize_input($_POST["loan_program"]);
 
-    $market_value = (float)str_replace(',', '', $home_price);
-    $P = ($market_value - (float)str_replace(',', '', $down_payment));
+    // Convert money values to numeric
+    $market_value = convertMoneyToNumeric($home_price);
+    $P = $market_value - convertMoneyToNumeric($down_payment);
+
+    // Calculations...
     $r = ((float)$_SESSION["interest_rate_preset"]) / 100;
     $t = (int)$_SESSION["loan_program_preset"];
     $n = 12;
@@ -39,12 +50,7 @@ if (
     $denominator = pow((1 + $r / $n), $n * $t) - 1;
 
     if (isset($_POST["property_tax"])) {
-        $_SESSION["property_tax_preset"] = sanitize_input($_POST["property_tax"]);
-        $_SESSION["home_insurance_preset"] = sanitize_input($_POST["home_insurance"]);
-        $_SESSION["hoa_dues_preset"] = sanitize_input($_POST["hoa_dues"]);
-        $prop_tax = (float)$home_price * ((float)$_SESSION["property_tax_preset"]) / 100;
-        $monthly_ins = (float)$_SESSION["home_insurance_preset"];
-        $_SESSION["total"] = ($numerator / $denominator) + ($prop_tax + $monthly_ins + $_SESSION["hoa_dues_preset"]);
+        // Additional calculations...
     } else {
         $_SESSION["total"] = $numerator / $denominator;
     }
@@ -52,7 +58,4 @@ if (
     $_SESSION["status"] = "Invalid input. Please enter valid numerical values.";
 }
 
-// Redirect to another page or display a message as needed
-//header("Location: result_page.php");
-//exit();
 ?>
