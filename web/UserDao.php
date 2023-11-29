@@ -15,22 +15,18 @@ class UserDao
                 $this->pass);
     }
 
-    public function saveUser($email, $user_name, $password, $access, $signUpDate)
+    public function saveUser($email, $user_name, $hashedPassword, $salt, $access, $signUpDate)
     {
         $conn = $this->getConnection();
         $saveQuery =
             "INSERT INTO users
-            (email, 
-             user_name,
-             password, 
-             access, 
-             sign_up_date)
-            VALUES
-            (:email, :user_name, :password, :access, :signUpDate)";
+        (email, user_name, password, salt, access, sign_up_date)
+        VALUES (:email, :user_name, :password, :salt, :access, :signUpDate)";
         $q = $conn->prepare($saveQuery);
         $q->bindParam(':email', $email, PDO::PARAM_STR);
         $q->bindParam(':user_name', $user_name, PDO::PARAM_STR);
-        $q->bindParam(':password', $password, PDO::PARAM_STR);
+        $q->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
+        $q->bindParam(':salt', $salt, PDO::PARAM_STR);
         $q->bindParam(':access', $access, PDO::PARAM_STR);
         $q->bindParam(':signUpDate', $signUpDate, PDO::PARAM_STR);
         $q->execute();
