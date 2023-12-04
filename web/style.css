@@ -115,16 +115,77 @@ nav a {
     margin: 0 auto;
 }
 
-footer {
-    display: flex;
-    justify-content: center;
+/*footer {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*footer li a {*/
+/*    text-decoration: none;*/
+/*    color: #333; !* Dark text color for navigation links *!*/
+/*    font-weight: bold;*/
+/*}*/
+/* Resetting default margin and padding for consistency */
+footer, footer * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-footer li a {
-    text-decoration: none;
-    color: #333; /* Dark text color for navigation links */
-    font-weight: bold;
+/* Main footer container */
+footer {
+    background-color: #333; /* Set your desired background color for the footer */
+    color: #fff; /* Set your desired text color for the footer */
+    padding: 20px 0;
 }
+
+/* Centering the footer content */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Styling for the logo */
+.footer-logo img {
+    width: 100px; /* Set your desired width for the logo */
+}
+
+/* Styling for the list items */
+.footer-links ul {
+    list-style: none;
+    display: flex;
+}
+
+.footer-links li {
+    margin-right: 20px; /* Adjust the spacing between list items */
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #fff; /* Set your desired text color for the links */
+}
+
+/* Styling for the copyright text and logout link */
+.footer-links p,
+.footer-links a:last-child {
+    margin-left: auto; /* Push them to the right */
+}
+
+/* Additional styling for the copyright text */
+.footer-links p {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-left: 20px;
+}
+
+/* Styling for the footer info section (if needed) */
+.footer-info {
+    /* Add styles as needed */
+}
+
 
 /* media query */
 @media (max-width: 1000px) {
