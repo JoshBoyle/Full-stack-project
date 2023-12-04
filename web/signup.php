@@ -3,10 +3,10 @@ session_start();
 $email = "";
 $password = "";
 if (isset($_SESSION["email_preset"])) {
-    $username = isset($_SESSION["username_preset"]) ? $_SESSION["username_preset"] : "";
     $email = $_SESSION["email_preset"];
-    $password = $_SESSION["password_preset"];
-    $confirmPassword = $_SESSION["password_preset"];
+    $username = $_SESSION["username_preset"] ?? "";
+    $password = $_SESSION["password_preset"] ?? "";
+    $confirmPassword = $_SESSION["password_preset"] ?? "";
 }
 require_once "UserDao.php";
 $dao=new UserDao();
