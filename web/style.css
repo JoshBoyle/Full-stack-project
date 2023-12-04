@@ -51,7 +51,7 @@ nav a {
 
 .logo img {
     justify-content: center;
-    margin-left: -12rem;
+    margin-left: -13rem;
     margin-bottom: 1rem;
 }
 
@@ -90,50 +90,6 @@ nav a {
     background-color: #316e9f;
 }
 
-/* Style the image section */
-#house-image {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    flex-basis: 100%;
-}
-
-#house-image img {
-    max-width: 100%; /* Ensure the image doesn't exceed its container's width */
-    max-height: 100%; /* Ensure the image doesn't exceed its container's height */
-}
-
-#search-box {
-    display:flex;
-    justify-content: center;
-    padding: 6px;
-    border: none;
-    margin-top: 18px;
-    margin-right: 26px;
-}
-
-#search-box input {
-    font-size: 25px;
-}
-
-/* Advanced search */
-
-.search-form {
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.column {
-    display:flex;
-    flex-direction:column;
-    /*justify-content: spac;*/
-}
-
-.search-button {
-    display:flex;
-    justify-content:center;
-}
-
 .box {
     background-color: #5f5f5f;
     margin: 1rem;
@@ -156,25 +112,6 @@ nav a {
     padding: 20px;
     max-width: 1000px; /* Adjust the maximum width as needed */
     margin: 0 auto;
-}
-
-/* Style the image on the left */
-.image {
-    flex: 1; /* Takes up 50% of the container */
-    padding-right: 20px; /* Add some spacing between image and text box */
-}
-
-/* Style the text box on the right */
-.text-box {
-    flex: 2; /* Takes up 50% of the container, smaller than the image */
-    background-color: #f5f5f5; /* Background color for the text box */
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.text-box p {
-    font-size: 16px;
-    color: #333;
 }
 
 footer {
