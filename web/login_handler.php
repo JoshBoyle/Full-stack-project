@@ -37,6 +37,7 @@ try {
         if ($userData['email'] === $inputEmail && $storedPassword === $hashedEnteredPassword) {
             $_SESSION["access_granted"] = true;
             $_SESSION["email_preset"] = $inputEmail;
+            $_SESSION["password_preset"] = $inputPassword;
 
             echo "<br>the user's permissions:" . $userData['access'];
             echo "<br> the userData array: <br>";
@@ -44,19 +45,21 @@ try {
 
             header("location: index.php");
 
-            printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "access granted",$hashedEnteredPassword);
+            printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "access granted");
         } elseif (!preg_match($pattern, $inputEmail)) {
-            printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "preg_match",$hashedEnteredPassword);
+            printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "preg_match");
             handleInvalid("Not a valid email");
         } elseif ($userData['email'] === $inputEmail && $storedPassword !== $hashedEnteredPassword) {
-            printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "invalid pass",$hashedEnteredPassword);
+            printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "invalid pass");
             handleInvalid("Invalid password");
         } else {
-            printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "email not regi",$hashedEnteredPassword);
+            printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "email not regi");
             handleInvalid("Email is not registered");
         }
     } else { // userData is NUll
+//        printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "email not regi",$hashedEnteredPassword);
 //        printPass($hashedEnteredPassword, $storedSalt, $password, "Invalid email and pass");
+        echo "user is null";
         handleInvalid("Invalid email and password");
     }
 } catch (PDOException $e) {
@@ -66,15 +69,17 @@ try {
 function handleInvalid($status) {
     $_SESSION["status"] = $status;
     $_SESSION["email_preset"] = $_POST["email"];
+    $_SESSION["password_preset"] = $_POST["password"];
     $_SESSION["access_granted"] = false;
-    header("location: index.php");
+    header("location: login.php");
 }
 
-function printPass($hashedEnteredPassword, $storedSalt, $password, $message, $saltedInputPW) {
-    echo $message;
+//function printPass($hashedEnteredPassword, $storedSalt, $password, $message, $saltedInputPW) {
+function printPass($hashedEnteredPassword, $storedSalt, $password, $message) {
+    echo "<br>" . $message;
     echo "<br>hashed pw:" . $hashedEnteredPassword;
     echo "<br>stored salt:" . $storedSalt;
     echo "<br>input pw:" . $password;
-    echo "<br>salted input pw:" . $saltedInputPW;
+//    echo "<br>salted input pw:" . $saltedInputPW;
 }
 ?>

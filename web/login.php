@@ -6,10 +6,17 @@ $email = "";
 $password = "";
 
 if (isset($_SESSION["email_preset"])) {
-    $email = filter_var($_SESSION["email_preset"], FILTER_SANITIZE_EMAIL);
-    $password = filter_var($_SESSION["password_preset"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $email = filter_var($_SESSION["email_preset"], FILTER_SANITIZE_EMAIL) ?? "";
+    $username = $_SESSION["username_preset"] ?? "";
+    $password = filter_var($_SESSION["password_preset"], FILTER_SANITIZE_SPECIAL_CHARS) ?? "";
+    $confirmPassword = filter_var($_SESSION["password_preset"], FILTER_SANITIZE_SPECIAL_CHARS) ?? "";
 }
-?>
+
+//if (isset($_SESSION["email_preset"])) {
+//    $email = filter_var($_SESSION["email_preset"], FILTER_SANITIZE_EMAIL);
+//    $password = filter_var($_SESSION["password_preset"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+//}
+//?>
 <html lang="en">
 
 <head>
