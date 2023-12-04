@@ -7,6 +7,7 @@ if (isset($_SESSION["email_preset"])) {
     $username = $_SESSION["username_preset"] ?? "";
     $password = $_SESSION["password_preset"] ?? "";
     $confirmPassword = $_SESSION["password_preset"] ?? "";
+    $status = $_SESSION["status"] ?? "";
 }
 require_once "UserDao.php";
 $dao=new UserDao();
@@ -21,8 +22,11 @@ $dao=new UserDao();
     <div id="signup-container">
         <h2>Sign Up</h2>
         <?php
+//        echo "hello";
         if (isset($_SESSION["status"])) {
-            echo "<div id='status'>" .  $_SESSION["status"] . "</div>";
+//            echo "<div id='status'>" . $_SESSION["status"] . "</div>";
+//            echo $_SESSION["status"];
+            echo "<div id='status'>" .  $status . "</div>";
             unset($_SESSION["status"]);
         }
         ?>
