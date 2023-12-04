@@ -31,7 +31,8 @@ if (preg_match($pattern, $email) && $password == $confirm_password) {
     $salt = generateSalt();
 
     // Hash the password with the salt using SHA-256
-    $hashedPassword = hashPassword($password, $salt);
+//    $hashedPassword = hashPassword($password, $salt);
+    $hashedPassword = hash('sha256', $salt . $password);
 
     if (isset($_POST["signUpButton"])) {
         $access = 'member';
