@@ -46,6 +46,7 @@ if (preg_match($pattern, $email) && $password == $confirm_password) {
                 $dao= new UserDao();
                 $dao->saveUser($email, $username, $hashedPassword, $salt, $access, $signUpDate);
                 $_SESSION["status"] = "Success!";
+                $_SESSION["access_granted"] = true;
             } catch (Exception $e) {
                 $_SESSION["status"] = "Exception inserting in database";
                 var_dump($e);
@@ -57,8 +58,6 @@ if (preg_match($pattern, $email) && $password == $confirm_password) {
             $_SESSION["access_granted"] = false;
         }
     }
-    $_SESSION["access_granted"] = true;
-    header("Location: index.php");
 } elseif (!preg_match($pattern, $email)) {
     $_SESSION["status"] = "Not a valid email";
     $_SESSION["access_granted"] = false;
@@ -70,7 +69,7 @@ if (preg_match($pattern, $email) && $password == $confirm_password) {
     $_SESSION["access_granted"] = false;
 }
 
-//if (!$_SESSION["access_granted"]) {
+if (!$_SESSION["access_granted"]) {
 // Store relevant data in session for displaying in the signup.php page
 //    echo "status" . $status;
     echo $_SESSION["status"];
@@ -79,6 +78,10 @@ if (preg_match($pattern, $email) && $password == $confirm_password) {
     $_SESSION["password_preset"] = $password;
     $_SESSION["confirm_password_preset"] = $confirm_password;
     header("Location: signup.php");
-//}
+} else {
+    $_SESSION["email_preset"] = $email;
+    $_SESSION["password_preset"] = $password;
+    header("Location: index.php");
+}
 
 ?>
