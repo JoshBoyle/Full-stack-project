@@ -5,8 +5,8 @@
         </div>
         <div class="footer-links">
             <ul>
-                <li><a href="index.php">Search</a></li>
-                <li><a href="AdvancedSearch.php">Advanced Search</a></li>
+                <li><a href="index.php">Basic</a></li>
+                <li><a href="AdvancedSearch.php">Advanced</a></li>
                 <a href="logout.php">Logout</a>
 <!--                <li><a href="#">About Us</a></li>-->
 <!--                <li><a href="#">Contact</a></li>-->
