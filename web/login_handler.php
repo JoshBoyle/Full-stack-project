@@ -37,6 +37,7 @@ try {
         if ($userData['email'] === $inputEmail && $storedPassword === $hashedEnteredPassword) {
             $_SESSION["access_granted"] = true;
             $_SESSION["email_preset"] = $inputEmail;
+
             echo "<br>the user's permissions:" . $userData['access'];
             echo "<br> the userData array: <br>";
             echo '<pre>'; print_r($userData); echo '</pre>';
