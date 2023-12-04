@@ -1,5 +1,6 @@
 <?php
 // signup_handler.php
+session_start();
 require_once "UserDao.php";
 
 // Function to sanitize input
@@ -37,37 +38,47 @@ if (preg_match($pattern, $email) && $password == $confirm_password) {
     if (isset($_POST["signUpButton"])) {
         $access = 'member';
         $signUpDate = date("Y-m-d H:i:s");
-        $dao = new UserDao();
-        try {
-            $dao->saveUser($email, $username, $hashedPassword, $salt, $access, $signUpDate);
-        } catch (Exception $e) {
-            var_dump($e);
-            die;
+
+        $daoCheck = new UserDao();
+        $userData = $daoCheck->getUserEmail($email);
+        if (!$userData) {
+            try {
+                $dao= new UserDao();
+                $dao->saveUser($email, $username, $hashedPassword, $salt, $access, $signUpDate);
+                $_SESSION["status"] = "Success!";
+            } catch (Exception $e) {
+                $_SESSION["status"] = "Exception inserting in database";
+                var_dump($e);
+                die;
+            }
+
+        } else {
+            $_SESSION["status"] = "Email already exists";
+            $_SESSION["access_granted"] = false;
         }
     }
     $_SESSION["access_granted"] = true;
     header("Location: index.php");
 } elseif (!preg_match($pattern, $email)) {
-    $status = "Not a valid email";
+    $_SESSION["status"] = "Not a valid email";
     $_SESSION["access_granted"] = false;
 } elseif ($password != $confirm_password) {
-    $status = "Passwords do not match";
+    $_SESSION["status"] = "Passwords do not match";
     $_SESSION["access_granted"] = false;
 } else {
-    $status = "Invalid input";
+    $_SESSION["status"] = "Invalid input";
     $_SESSION["access_granted"] = false;
 }
 
-if ($_SESSION["access_granted"] == false) {
+//if (!$_SESSION["access_granted"]) {
 // Store relevant data in session for displaying in the signup.php page
-    $_SESSION["status"] = $status;
+//    echo "status" . $status;
+    echo $_SESSION["status"];
     $_SESSION["email_preset"] = $email;
     $_SESSION["username_preset"] = $username;
     $_SESSION["password_preset"] = $password;
     $_SESSION["confirm_password_preset"] = $confirm_password;
-    $_SESSION["access_granted"] = false;
-
     header("Location: signup.php");
-}
+//}
 
 ?>
