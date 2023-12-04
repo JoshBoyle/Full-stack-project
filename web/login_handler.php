@@ -3,37 +3,38 @@
 session_start();
 require_once "UserDao.php";
 
-$email = $_POST["email"];
-$password = $_POST["password"];
+$inputEmail = $_POST["email"];
+$inputPassword = $_POST["password"];
 
 $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/";
 $dao = new UserDao();
 
 try {
-    $userData = $dao->getUserEmail($email);
+    $userData = $dao->getUserEmail($inputEmail);
 
     if ($userData) {
         $storedPassword = $userData['password'];
         $storedSalt = $userData['salt'];
 
         // Concatenate salt and entered password before hashing
-        $hashedEnteredPassword = hash('sha256', $storedSalt . $password);
+        $hashedEnteredPassword = hash('sha256', $storedSalt . $inputPassword);
 //        printPass($hashedEnteredPassword, $storedSalt, $password, );
 
-        if ($userData['email'] === $email && $storedPassword === $hashedEnteredPassword) {
+//        if ($userData['email'] === $email && $storedPassword === $hashedEnteredPassword) {
+        if ($userData['email'] === $inputEmail && $storedPassword === $hashedEnteredPassword) {
             $_SESSION["access_granted"] = true;
-            $_SESSION["email_preset"] = $email;
+            $_SESSION["email_preset"] = $inputEmail;
 //            header("location: index.php");
 
-            printPass($hashedEnteredPassword, $storedSalt, $password, "access granted");
-        } elseif (!preg_match($pattern, $email)) {
-            printPass($hashedEnteredPassword, $storedSalt, $password, "preg_match");
+            printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "access granted",$hashedEnteredPassword);
+        } elseif (!preg_match($pattern, $inputEmail)) {
+            printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "preg_match",$hashedEnteredPassword);
             handleInvalid("Not a valid email");
-        } elseif ($userData['email'] === $email && $storedPassword !== $hashedEnteredPassword) {
-            printPass($hashedEnteredPassword, $storedSalt, $password, "invalid pass");
+        } elseif ($userData['email'] === $inputEmail && $storedPassword !== $hashedEnteredPassword) {
+            printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "invalid pass",$hashedEnteredPassword);
             handleInvalid("Invalid password");
         } else {
-            printPass($hashedEnteredPassword, $storedSalt, $password, "email not regi");
+            printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "email not regi",$hashedEnteredPassword);
             handleInvalid("Email is not registered");
         }
     } else { // userData is NUll
@@ -51,10 +52,11 @@ function handleInvalid($status) {
 //    header("location: index.php");
 }
 
-function printPass($hashedEnteredPassword, $storedSalt, $password, $message) {
+function printPass($hashedEnteredPassword, $storedSalt, $password, $message, $saltedInputPW) {
     echo $message;
     echo "<br>hashed pw:" . $hashedEnteredPassword;
     echo "<br>stored salt:" . $storedSalt;
-    echo "<br>pw:" . $password;
+    echo "<br>input pw:" . $password;
+    echo "<br>salted input pw:" . $saltedInputPW;
 }
 ?>
