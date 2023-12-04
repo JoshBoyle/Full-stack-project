@@ -11,10 +11,9 @@ try {
     $user = new User($userData);
     if ($user !== null) {
         $permission = $user->hasPermission(User::MEMBER);
-        if ($permission) {
+        if ($permission && $_SESSION["access_granted"]) {
             require_once "AdvancedSearchText.php";
         } else {
-
             $_SESSION["status"] = "Log In to access this page";
             header("Location:login.php");
         }
