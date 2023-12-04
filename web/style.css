@@ -56,8 +56,7 @@ nav a {
 }
 
 .page-button a {
-    background-color: #CBF1CB; /* Red login button color similar to Zillow */
-    color: #333; /* Dark text color for the login button */
+    /*background-color: #CBF1CB; !* Red login button color similar to Zillow *!*/
     padding: 10px 20px; /* Adjust padding as needed */
     border-radius: 5px; /* Rounded corners for the button */
     text-decoration: none;
@@ -70,7 +69,6 @@ nav a {
     /*background-color: #316e9f;*/
     background-color: #DDF4FF;
 
-    color: #333; /* Dark text color for the login button */
     padding: 10px 20px; /* Adjust padding as needed */
     border-radius: 5px; /* Rounded corners for the button */
     text-decoration: none;
