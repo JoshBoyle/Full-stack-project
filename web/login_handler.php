@@ -37,7 +37,7 @@ try {
         if ($userData['email'] === $inputEmail && $storedPassword === $hashedEnteredPassword) {
             $_SESSION["access_granted"] = true;
             $_SESSION["email_preset"] = $inputEmail;
-//            header("location: index.php");
+            header("location: index.php");
 
             printPass($hashedEnteredPassword, $storedSalt, $inputPassword, "access granted",$hashedEnteredPassword);
         } elseif (!preg_match($pattern, $inputEmail)) {
@@ -62,7 +62,7 @@ function handleInvalid($status) {
     $_SESSION["status"] = $status;
     $_SESSION["email_preset"] = $_POST["email"];
     $_SESSION["access_granted"] = false;
-//    header("location: index.php");
+    header("location: index.php");
 }
 
 function printPass($hashedEnteredPassword, $storedSalt, $password, $message, $saltedInputPW) {
