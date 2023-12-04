@@ -20,6 +20,19 @@ try {
         $hashedEnteredPassword = hash('sha256', $storedSalt . $inputPassword);
 //        printPass($hashedEnteredPassword, $storedSalt, $password, );
 
+        if ($storedPassword === $hashedEnteredPassword) {
+            echo "they are the same<br>";
+            echo "<br>stored         pw\t:" . $storedPassword;
+            echo "<br>stored       salt\t:" . $storedSalt;
+            echo "<br>input pw         \t:" . $inputPassword;
+            echo "<br>salted input pw  \t:" . $hashedEnteredPassword;
+        } else {
+            echo "they are different???<br>";
+            echo "<br>stored         pw:" . $storedPassword;
+            echo "<br>stored       salt:" . $storedSalt;
+            echo "<br>input pw         :" . $inputPassword;
+            echo "<br>salted input pw  :" . $hashedEnteredPassword;
+        }
 //        if ($userData['email'] === $email && $storedPassword === $hashedEnteredPassword) {
         if ($userData['email'] === $inputEmail && $storedPassword === $hashedEnteredPassword) {
             $_SESSION["access_granted"] = true;
